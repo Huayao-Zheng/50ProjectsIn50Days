@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #333;
+  margin: 0;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.container {
+  background-color: aliceblue;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 50px;
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+}
+
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.container.show-nav .circle-container .circle {
+  transform: rotate(-70deg);
+  transition: transform 0.5s linear;
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: rgb(255, 111, 111);
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s linear;
+}
+.circle button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  caret-color: transparent;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
+}
+
+.content img {
+  width: 100%;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  color: #fff;
+  margin: 45px 0;
+  font-size: 25px;
+  transform: translateX(-80%);
+  transition: transform 0.5s ease-in;
+}
+
+nav ul li + li {
+  margin-left: 20px;
+  transform: translateX(-110%);
+}
+
+nav ul li + li + li {
+  margin-left: 40px;
+  transform: translateX(-160%);
+}
+
+nav ul li i {
+  padding-right: 20px;
+}
+
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
