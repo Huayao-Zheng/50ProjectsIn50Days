@@ -8,6 +8,8 @@ const form = document.querySelector('#form');
 const search = document.querySelector('#search');
 const main = document.querySelector('#main');
 
+getMovies(API_URL);
+
 async function getMovies(url) {
   const res = await fetch(url);
   const { results } = await res.json();
@@ -17,7 +19,6 @@ async function getMovies(url) {
 
 function showMovies(movies) {
   main.innerHTML = '';
-  console.log(movies);
 
   movies.forEach((movie) => {
     const { title, vote_average, overview, poster_path } = movie;
@@ -43,39 +44,6 @@ function showMovies(movies) {
 
     main.appendChild(movieElm);
   });
-
-  // movies.forEach((movies) => {
-  //   const moviediv = document.createElement('div');
-  //   const movieImg = document.createElement('img');
-  //   const movieInfoDiv = document.createElement('div');
-  //   const movieTItleH3 = document.createElement('h3');
-  //   const ratingSpan = document.createElement('span');
-  //   const overViewDiv = document.createElement('div');
-  //   const overViewH3 = document.createElement('h3');
-
-  //   moviediv.classList.add('movie');
-
-  //   movieImg.src = `${IMG_PATH}${movies.poster_path}`;
-  //   movieImg.alt = movies.title;
-
-  //   movieInfoDiv.classList.add('movie-info');
-
-  //   movieTItleH3.innerText = 'Movie Title';
-
-  //   ratingSpan.classList.add('green');
-  //   ratingSpan.innerHTML = movies.vote_average;
-
-  //   if (movies.vote_average > )
-
-  //   overViewDiv.classList.add('overview');
-
-  //   overViewH3.innerHTML = 'Overview';
-
-  //   overViewDiv.append(overViewH3, movies.overview);
-  //   movieInfoDiv.append(movieTItleH3, ratingSpan);
-  //   moviediv.append(movieImg, movieInfoDiv, overViewDiv);
-  //   main.appendChild(moviediv);
-  // });
 }
 
 function getClassByRate(vote) {
@@ -90,6 +58,7 @@ function getClassByRate(vote) {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  console.log('submited!!!');
 
   const searchTerm = search.value;
 

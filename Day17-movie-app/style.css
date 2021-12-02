@@ -44,6 +44,7 @@ header {
 main {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .movie {
@@ -97,8 +98,8 @@ main {
   left: 0;
   bottom: 0;
   max-height: 100%;
-  transform: translateY(100%);
-  transition: 0.5s ease-in-out;
+  transform: translateY(105%);
+  transition: 0.3s ease-in-out;
 }
 .movie:hover .overview {
   transform: translateY(0);
