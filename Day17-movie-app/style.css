@@ -80,6 +80,9 @@ main {
   font-weight: bold;
 }
 
+.movie-info span.green {
+  color: green;
+}
 .movie-info span.orange {
   color: orange;
 }
