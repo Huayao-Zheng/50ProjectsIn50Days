@@ -46,7 +46,7 @@ body::before {
   position: absolute;
   top: -15vh;
   left: -15vw;
-  transition: 0.4s;
+  transition: 0.5s;
   z-index: 1;
 }
 
