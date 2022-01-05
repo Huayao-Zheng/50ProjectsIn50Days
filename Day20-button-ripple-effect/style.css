@@ -7,7 +7,38 @@
     padding: 0;
 }
 
-:root {
-    --p-color: #000;
-    --s-color: #fff;
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.ripple {
+    background-color: rgb(13, 10, 221);
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    /* animation */
+    transform: translate(-50%, -50%) scale(0);
+    animation: scale 0.5s ease;
+}
+
+@keyframes scale {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
 }
