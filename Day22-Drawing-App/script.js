@@ -1,9 +1,15 @@
 const canvas = document.querySelector('#canvas');
+const increaseBtn = document.querySelector('#increase');
+const decreaseBtn = document.querySelector('#decrease');
+const sizeELm = document.querySelector('#size');
+const colorElm = document.querySelector('#color');
+const clearElm = document.querySelector('#clear');
+
 const ctx = canvas.getContext('2d');
 
 let size = 20;
 let isPressed = false;
-let color = 'black';
+let color = colorElm.value;
 let x;
 let y;
 
@@ -22,7 +28,9 @@ canvas.addEventListener('mouseup', (e) => {
 });
 
 canvas.addEventListener('mousemove', (e) => {
-    if (isPressed) {
+    const isMouseBtnLeftClicked = e.buttons === 1;
+
+    if (isPressed && isMouseBtnLeftClicked) {
         const x2 = e.offsetX;
         const y2 = e.offsetY;
 
@@ -33,6 +41,26 @@ canvas.addEventListener('mousemove', (e) => {
         y = y2;
     }
 });
+
+increaseBtn.addEventListener('click', () => {
+    size += 5;
+
+    if (size > 50) size = 50;
+
+    updateSizeOnScreen();
+});
+
+decreaseBtn.addEventListener('click', () => {
+    size -= 5;
+
+    if (size < 5) size = 5;
+
+    updateSizeOnScreen();
+});
+
+function updateSizeOnScreen() {
+    sizeELm.innerHTML = size;
+}
 
 function drawCircle(x, y) {
     ctx.beginPath();
@@ -50,5 +78,8 @@ function drawLine(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
-drawCircle(100, 100);
-drawLine(10, 10, 300, 500);
+const clearCanvas = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
+clearElm.addEventListener('click', clearCanvas);
+
+// hanle color change
+colorElm.addEventListener('change', (e) => (color = e.target.value));
