@@ -20,4 +20,4 @@ const createNotification = (message = null, type = null) => {
     setTimeout(() => notification.remove(), 3000);
 };
 
-button.addEventListener('click', () => createNotification());
+button.addEventListener('click', () => createNotification('Invalid'));
